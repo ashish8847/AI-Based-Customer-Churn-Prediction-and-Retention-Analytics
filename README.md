@@ -37,7 +37,7 @@ Acquiring a new customer costs far more than keeping an existing one. This proje
 3. Scores customers with a **risk score**, a **risk level** (Low / Medium / High) and the **main contributing factors**.
 4. Suggests **retention actions** backed by real rates from the dataset.
 5. Stores predictions and retention cases in **SQLite**.
-6. Exposes everything through a **React + Express** web application, with a Streamlit app and a Power BI dashboard as alternatives.
+6. Exposes everything through a **React + Express** web application and a Power BI dashboard as alternatives.
 
 ## Features
 
