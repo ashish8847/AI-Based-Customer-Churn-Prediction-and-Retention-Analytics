@@ -1,0 +1,12 @@
+digraph G { rankdir=LR; nodesep=0.45; ranksep=0.9;
+ node [fontname="Helvetica", fontsize=10];
+ user [label="User", shape=box, style=filled, fillcolor="#fdf0d5"];
+ ds [label="Telco CSV", shape=box, style=filled, fillcolor="#fdf0d5"];
+ node [shape=circle, style=filled, fillcolor="#e9f5f3", width=1.25, fixedsize=true];
+ p1 [label="1.0\nClean and\nprepare data"]; p2 [label="2.0\nTrain and\nevaluate\nmodels"]; p3 [label="3.0\nValidate input\nand predict"]; p4 [label="4.0\nGenerate\nretention\nadvice"]; p5 [label="5.0\nAnalytics and\nreporting"];
+ node [shape=box, style="filled", fillcolor="#e7eef7", width=1.6, fixedsize=false];
+ d1 [label="D1  Cleaned data"]; d2 [label="D2  Model bundle"]; d3 [label="D3  SQLite database"];
+ ds->p1 [label="raw data"]; p1->d1 [label="clean data"]; d1->p2 [label="training data"]; p2->d2 [label="trained model"];
+ user->p3 [label="customer details"]; d2->p3 [label="model"]; p3->p4 [label="risk level, factors"]; d1->p4 [label="segment statistics"];
+ p4->user [label="prediction + advice"]; p3->d3 [label="prediction record"]; p4->d3 [label="recommendations"];
+ d3->p5 [label="history, risk scores"]; d1->p5; p5->user [label="dashboards, history"]; }

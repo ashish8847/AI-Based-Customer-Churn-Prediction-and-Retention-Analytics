@@ -1,0 +1,7 @@
+digraph G { rankdir=LR; nodesep=0.3; ranksep=0.35; 
+ node [shape=box, style="rounded,filled", fillcolor="#eef3f7", fontname="Helvetica", fontsize=11];
+ edge [color="#555555"];
+ a [label="Collect\ndataset"]; b [label="Clean data\n(types, blanks,\nduplicates)"]; c [label="EDA"]; d [label="Stratified\ntrain/test split"];
+ e [label="Preprocess\n(scale + encode,\nfit on train only)"]; f [label="Train 5 models\n+ 5-fold CV"]; g [label="Select model\n(CV F1)"]; h [label="Evaluate on\ntest set"];
+ i [label="Save model\nbundle"]; j [label="Predict + explain\n+ recommend"]; k [label="Store in SQLite"]; l [label="Power BI +\nReact web app"];
+ a->b->c->d->e->f->g->h->i->j->k->l; }

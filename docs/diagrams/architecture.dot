@@ -1,0 +1,23 @@
+digraph G { rankdir=TB; nodesep=0.35; ranksep=0.45; bgcolor="white";
+ node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, margin="0.15,0.08"];
+ edge [fontname="Helvetica", fontsize=9, color="#555555"];
+ subgraph cluster_data { label="Data Layer"; style="rounded,dashed"; color="#999999"; fontname="Helvetica";
+  raw [label="IBM Telco CSV\n(data/raw)", fillcolor="#e9f5f3"];
+  clean [label="Data cleaning\nsrc/data_loader.py", fillcolor="#e9f5f3"];
+  proc [label="Cleaned dataset\n(data/processed)", fillcolor="#e9f5f3"]; }
+ subgraph cluster_ml { label="Machine Learning Layer"; style="rounded,dashed"; color="#999999"; fontname="Helvetica";
+  prep [label="Split + preprocessing pipeline\nsrc/preprocessing.py", fillcolor="#fdf0d5"];
+  train [label="Train 5 models + cross-validation\nsrc/train.py, src/evaluate.py", fillcolor="#fdf0d5"];
+  model [label="Saved model bundle\nmodels/churn_model.joblib", fillcolor="#fdf0d5"];
+  pred [label="Prediction + factor explanation\nsrc/predict.py", fillcolor="#fdf0d5"];
+  ret [label="Retention rules + segment analysis\nsrc/retention.py", fillcolor="#fdf0d5"]; }
+ subgraph cluster_store { label="Storage and Analytics Layer"; style="rounded,dashed"; color="#999999"; fontname="Helvetica";
+  db [label="SQLite database\ncustomers, customer_risk, predictions,\nrecommendations, retention_cases, users", shape=cylinder, fillcolor="#e7eef7"];
+  pbi [label="Power BI dashboard\n(powerbi_customers.csv)", fillcolor="#e7eef7"]; }
+ subgraph cluster_ui { label="Application Layer"; style="rounded,dashed"; color="#999999"; fontname="Helvetica";
+  api [label="Node.js + Express REST API\nJWT auth, SQL, ML worker bridge", fillcolor="#fbe4de"];
+  app [label="React web application (Vite)\nDashboard, Predict, Customers, Retention,\nBatch, Models, History", fillcolor="#fbe4de"];
+  user [label="Business user / analyst", shape=oval, fillcolor="#ffffff"]; }
+ raw->clean->proc->prep->train->model; proc->db [label="load"]; proc->pbi [style=dashed, label="via scoring export"];
+ model->pred; pred->ret; model->pbi [label="risk scores", style=dashed];
+ pred->api [label="Python worker\n(JSON over stdin/stdout)", dir=both]; ret->api; api->db [dir=both, label="SQL"]; api->app [dir=both, label="HTTPS/JSON"]; user->app [dir=both]; }

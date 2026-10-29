@@ -1,0 +1,16 @@
+digraph G { rankdir=LR; splines=true; nodesep=0.25; ranksep=1.6;
+ node [fontname="Helvetica", fontsize=11];
+ analyst [label="Business Analyst", shape=box, style=filled, fillcolor="#fdf0d5"];
+ manager [label="Retention Manager", shape=box, style=filled, fillcolor="#fdf0d5"];
+ admin [label="Administrator\n(student/developer)", shape=box, style=filled, fillcolor="#fdf0d5"];
+ node [shape=ellipse, style=filled, fillcolor="#e9f5f3"];
+ subgraph cluster_sys { label="Churn Prediction and Retention System"; style="rounded"; fontname="Helvetica";
+  u1 [label="View EDA and analytics"]; u2 [label="Compare model performance"]; u3 [label="Enter customer details"];
+  u4 [label="Get churn prediction and risk level"]; u5 [label="View influencing factors"]; u6 [label="Get retention suggestions"];
+  u7 [label="View prediction history"]; u8 [label="Explore at-risk customers and segments"]; u9 [label="Delete history records"];
+  u10 [label="Retrain model"]; u11 [label="Load data into database"]; u12 [label="Export data for Power BI"];
+  u13 [label="Sign in"]; u14 [label="Run what-if scenarios"]; u15 [label="Score a CSV in batch"]; u16 [label="Track retention cases"]; }
+ analyst->u13; analyst->u1; analyst->u2; analyst->u3; analyst->u7; analyst->u15; analyst->u14;
+ manager->u13; manager->u3; manager->u8; manager->u7; manager->u16;
+ admin->u10; admin->u11; admin->u12; admin->u9;
+ u3->u4 [style=dashed, label="<<include>>", fontsize=9]; u4->u5 [style=dashed, label="<<extend>>", fontsize=9]; u4->u6 [style=dashed, label="<<include>>", fontsize=9]; }

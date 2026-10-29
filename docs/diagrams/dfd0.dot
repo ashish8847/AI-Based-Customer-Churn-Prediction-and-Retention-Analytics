@@ -1,0 +1,6 @@
+digraph G { rankdir=LR; nodesep=0.5; ranksep=1.2;
+ node [fontname="Helvetica", fontsize=11];
+ user [label="User\n(analyst / manager)", shape=box, style=filled, fillcolor="#fdf0d5"];
+ sys [label="0\nChurn Prediction and\nRetention Analytics\nSystem", shape=circle, style=filled, fillcolor="#e9f5f3", width=2.2];
+ ds [label="Telco customer\ndataset (CSV)", shape=box, style=filled, fillcolor="#fdf0d5"];
+ user->sys [label="Customer details,\nrequests"]; sys->user [label="Prediction, risk level,\nfactors, recommendations,\nanalytics"]; ds->sys [label="Historical customer data"]; }
