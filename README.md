@@ -230,6 +230,20 @@ Express starts the Python worker once and keeps it running, so predictions take 
 
 The dashboard is in [`powerbi/churn_dashboard.pbix`](powerbi/churn_dashboard.pbix) (open with Power BI Desktop on Windows). It reads `data/processed/powerbi_customers.csv`, which is created by `python -m src.score_customers`. The theme file and step-by-step build instructions with DAX measures are in [`powerbi/POWERBI_GUIDE.md`](powerbi/POWERBI_GUIDE.md).
 
+## Screenshots
+
+| Login | Dashboard |
+|---|---|
+| ![Login](Screenshot/Login%20page.png) | ![Dashboard](Screenshot/Dashboard.png) |
+
+| Prediction | Retention queue |
+|---|---|
+| ![Prediction](Screenshot/Prediction%20page.png) | ![Retention](Screenshot/Retention%20queue.png) |
+
+| Power BI dashboard | Mobile view |
+|---|---|
+| ![Power BI](Screenshot/Power%20BI%20dashboard.png) | ![Mobile](Screenshot/Mobile%20view.png) |
+
 ## Testing
 
 ```bash
