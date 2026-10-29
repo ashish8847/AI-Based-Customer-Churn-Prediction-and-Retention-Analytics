@@ -1,6 +1,6 @@
 # AI-Based Customer Churn Prediction and Retention Analytics
 
-An end-to-end machine learning project that predicts which telecom customers are likely to leave, explains the main factors behind each prediction, recommends retention actions, and presents everything through a full-stack web app, a Streamlit app, and a Power BI dashboard.
+An end-to-end machine learning project that predicts which telecom customers are likely to leave, explains the main factors behind each prediction, recommends retention actions, and presents everything through a full-stack web app, and a Power BI dashboard.
 
 ![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-3776AB?logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
@@ -127,7 +127,7 @@ churn-project/
 ├── webapp/
 │   ├── server/                        Express API, auth, DB, ML worker bridge
 │   └── client/                        React (Vite) front end
-├── app/app.py                         Streamlit application
+├── app/app.py                         
 ├── database/                          schema.sql, queries.sql, churn.db
 ├── models/churn_model.joblib          saved pipeline + model
 ├── powerbi/                           dashboard (.pbix), theme, build guide
@@ -149,8 +149,8 @@ churn-project/
 ### Installation
 
 ```bash
-git clone https://github.com/ashish8847/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/ashish8847/AI-Based-Customer-Churn-Prediction-and-Retention-Analytics.git
+cd AI-Based-Customer-Churn-Prediction-and-Retention-Analytics
 
 python -m venv venv
 
